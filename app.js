@@ -1,4 +1,3 @@
-let loopTimer = null;
 const gameSpeed = 200;
 let carRotation = 0;
 let turnIncrement = 32;
@@ -26,15 +25,49 @@ function Position(degrees, x, y) {
   }
 
 const positions = [
-    new Position(0, 0, -10),
-    new Position(11.25, 2.5, -10),
-    new Position(22.5, 5, -10),
-    new Position(33.75, 7.5, -10),
-    new Position(45, 10, -10),
-    new Position(56.25, 10, -7.5),
-    new Position(67.5, 10, -5),
-    new Position(78.75, 10, -2.5),
+    // 12 o'clock
+    new Position(0,         0,      -10),
+    
+    new Position(11.25,     2.5,    -10),
+    new Position(22.5,      5,      -10),
+    new Position(33.75,     7.5,    -10),
+    new Position(45,        10,     -10),
+    new Position(56.25,     10,     -7.5),
+    new Position(67.5,      10,     -5),
+    new Position(78.75,     10,     -2.5),
+
+    //3 o'clock
     new Position(90, 10, -0),
+
+    new Position(101.25,    10,     2.5),
+    new Position(112.50,    10,     5),
+    new Position(123.75,    10,     7.5),
+    new Position(135.00,    10,     10),
+    new Position(146.25,    7.5,    10),
+    new Position(157.50,    5,      10),
+    new Position(168.75,    2.5,    10),
+
+    // 6 o'clock
+    new Position(180,       0,      10),
+
+    new Position(191.25,    -2.5,   10),
+    new Position(202.50,    -5,     10),
+    new Position(213.75,    -7.5,   10),
+    new Position(225.00,    -10,    10),
+    new Position(236.25,    -10,    7.5),
+    new Position(247.50,    -10,    5),
+    new Position(258.75,    -10,    2.5),
+
+    // 9 o'clock
+    new Position(270,       -10,    0),
+
+    new Position(281.25,    -10,    -2.5),
+    new Position(292.50,    -10,    -5),
+    new Position(303.75,    -10,    -7.5),
+    new Position(315.00,    -10,    -10),
+    new Position(326.25,    -7.5,   -10),
+    new Position(337.50,    -5,     -10),
+    new Position(348.75,    -2.5,   -10),
 ]
 
 const createCar = () =>{
@@ -103,7 +136,13 @@ const onMoveCar = (e) =>{
 const onTurnCar = (direction) =>{
 
     carRotation = (direction == 'left') ? --carRotation : ++carRotation;
-    console.log(carRotation);
+    
+    // Check we're not out of Bounds
+    if (carRotation === 32) {
+        carRotation = 0;
+    }else if (carRotation === -1) {
+        carRotation = 31;
+    }
     positions[carRotation].turn();
 }
 
