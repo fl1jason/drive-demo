@@ -1,0 +1,129 @@
+:root {
+    --primary: #dd1c1c;
+}
+
+html *
+{
+   font-size: 1.0em !important;
+   color: #000;
+   font-family: Arial !important;
+}
+
+header {
+    display: flex; 
+}
+
+#logo {
+    flex: 25%;
+}
+
+#nav {
+    flex: 75%;
+    margin-top: auto;
+}
+
+nav {
+    padding: 1em;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 16px 16px rgba(0,0,0,0.12);
+}
+
+#nav h1 {
+    font-size: 1.6em !important;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 100px;
+    list-style-type: none;
+}
+
+nav ul a {
+    color: var(--primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+main {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project {
+    display: flex;
+    flex: 48%;
+    justify-content: center;
+    margin: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+    border-radius: 5px;
+}
+
+.project img {
+    width: 200px;
+    height: auto;
+    margin: auto;
+    border-radius: 5%;
+}
+
+.project-details {
+    display: flex;
+    flex-basis: 400px;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.project-details .content {
+    min-height: 130px;
+    line-height: 1.5em;
+}
+
+a.button{
+    background-color: var(--primary);
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#ffffff;
+    width: 200px;
+    text-transform: uppercase;
+    text-shadow: 0 0.04em 0.04em rgba(240, 233, 233, 0.35);
+    text-align:center;
+    transition: all 0.2s;
+}
+a.button:hover{
+    border-color: rgba(255,255,255,1);
+}
+
+@media only screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        margin: 2px 0;
+    }
+
+    .project {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-details {
+        margin: 15px 0;
+        flex-basis: 0;
+    }
+  }
